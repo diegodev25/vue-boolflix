@@ -11,25 +11,27 @@
     <title>Boolflix</title>
   </head>
   <body>
-    <!-- HEADER -->
-    <header class="header">
-      <img src="img/Netflix-01.svg" alt="Netflix logo">
-      <form class="" action="index.html" method="post">
-        <input type="search" name="" value="" placeholder="Cerca il tuo film preferito...">
-        <button type="button" name="button">Cerca</button>
-      </form>
-    </header>
-    <!-- MAIN -->
-    <main class="container">
-      <div id="app" class="section-movie">
-        <div v-for="(info, index) in movie" class="movie-info">
-          <h3>{{ info.title }}</h3>
-          <h4>{{ info.original_title }}</h4>
-          <h5>{{ info.original_language }}</h5>
-          <h5>{{ info.vote_average }}</h5>
+    <div id="app">
+      <!-- HEADER -->
+      <header class="header">
+        <img src="img/Netflix-01.svg" alt="Netflix logo">
+        <div>
+          <input v-model="search" @keyup.enter="checkFilm" type="text" placeholder="Cerca il tuo film preferito...">
+          <button type="button" @click="checkFilm">Cerca</button>
         </div>
-      </div>
-    </main>
+      </header>
+      <!-- MAIN -->
+      <main class="container">
+        <div class="section-movie">
+          <div v-for="movie in film" class="movie-info">
+            <h3>Titolo: {{ movie.title }}</h3>
+            <h4>Titolo originale: {{ movie.original_title }}</h4>
+            <h5>Lingua originale: {{ movie.original_language }}</h5>
+            <h5>Voto: {{ movie.vote_average }}</h5>
+          </div>
+        </div>
+      </main>
+    </div>
     <script src="js/script.js"></script>
   </body>
 </html>

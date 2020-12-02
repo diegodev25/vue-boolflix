@@ -11,18 +11,19 @@ film trovato:
 4. Voto
 */
 
-const personalAPI = 'https://api.themoviedb.org/3/search/movie?api_key=e5c4638bfc15f5da668dafcb6d0b4b1b&language=it-IT&query=Movies&page=1&include_adult=false';
+const personalAPI = 'https://api.themoviedb.org/3/search/movie?api_key=e5c4638bfc15f5da668dafcb6d0b4b1b&query=';
 
 var app = new Vue ({
   el: '#app',
   data: {
-    movie: []
+    film: [],
+    search: ''
   },
-  mounted: function () {
-    axios.get(personalAPI)
-    .then(risposta => {
-      this.movie = risposta.data.results;
-      console.log(this.movie);
-    });
+  methods: {
+    checkFilm: function () {
+      axios.get(personalAPI + this.search)
+      .then(risposta => this.film = risposta.data.results);
+      this.search = '';
+    }
   }
 })
