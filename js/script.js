@@ -17,7 +17,8 @@ https://api.themoviedb.org/3/search/tv?api_key=e99307154c6dfb0b4750f6603256716d&
 crubs
 */
 
-const personalAPI = 'https://api.themoviedb.org/3/search/movie?api_key=e5c4638bfc15f5da668dafcb6d0b4b1b&query=';
+const filmAPI = 'https://api.themoviedb.org/3/search/movie?api_key=e5c4638bfc15f5da668dafcb6d0b4b1b&query=';
+const serieTvAPI = 'https://api.themoviedb.org/3/search/tv?api_key=e5c4638bfc15f5da668dafcb6d0b4b1b&query=';
 
 var app = new Vue ({
   el: '#app',
@@ -28,7 +29,8 @@ var app = new Vue ({
   },
   methods: {
     checkFilm: function () {
-      axios.get(personalAPI + this.search)
+      // API film da chiamare
+      axios.get(filmAPI + this.search)
       .then(risposta => {
         this.film = risposta.data.results;
         this.search = '';
@@ -36,6 +38,11 @@ var app = new Vue ({
           Vue.set(item, 'vote_average', Math.ceil(item.vote_average / 2));
         });
         this.film = [...risposta.data.results]
+      });
+      // API serie TV da chiamare
+      axios.get()
+      .then(rispostaTV => {
+
       })
     }
   }
