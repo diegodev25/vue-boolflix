@@ -65,7 +65,6 @@
   min-height: 650px;
   margin: auto;
   padding: 10px;
-  border: 1px solid yellow;
 }
 
 .movie-info {
@@ -75,7 +74,7 @@
   justify-content: center;
   flex-basis: calc((100% / 5) - 40px);
   height: 320px;
-  border: 1px solid yellow;
+  border: 1px solid white;
 }
 
 .movie-info h3 {
@@ -88,4 +87,19 @@
   text-align: center;
   color: #6d6f72;
   margin-bottom: 5px;
+}
+
+.movie-info > h5:nth-last-child(2) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.movie-info > h5:last-child > .fas {
+  color: #f8ce0b;
+}
+
+.movie-info > h5:nth-last-child(2) > img {
+  margin-left: 5px;
+  width: 25px;
 }

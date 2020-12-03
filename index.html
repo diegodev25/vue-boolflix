@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous"/>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
@@ -26,8 +27,12 @@
           <div v-for="movie in film" class="movie-info">
             <h3>Titolo: {{ movie.title }}</h3>
             <h4>Titolo originale: {{ movie.original_title }}</h4>
-            <h5>Lingua originale: {{ movie.original_language }}</h5>
-            <h5>Voto: {{ movie.vote_average }}</h5>
+            <h5>Lingua originale:
+              <img :src="'img/' + movie.original_language + '.svg'" :alt="movie.original_language">
+            </h5>
+            <h5>Voto:
+              <i v-for="(vote, index) in stars" :class="index < movie.vote_average ? 'fas' : 'far'" class="fa-star"></i>
+            </h5>
           </div>
         </div>
       </main>
