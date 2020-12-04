@@ -4,6 +4,9 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
   font-family: 'Lato', sans-serif;
 }
 
@@ -80,18 +83,15 @@ a {
 .movie-poster {
   position: relative;
   display: flex;
-  margin: 20px;
   flex-direction: column;
   justify-content: center;
   flex-basis: calc((100% / 5) - 40px);
   height: 380px;
   border: 1px solid white;
+  margin: 20px;
 }
 
 .movie-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   position: absolute;
   top: 0;
   left: 0;
@@ -111,34 +111,33 @@ a {
   margin-bottom: 5px;
 }
 
-.movie-info h5 {
+#original-language {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.movie-info > h5:nth-last-child(2) > img {
+#original-language > img {
   margin-left: 5px;
   width: 25px;
 }
 
-.original-language h5 {
-  color: rgba(239, 242, 228, 1);
-  margin-bottom: 5px;
-}
-
-.movie-info > h5:nth-last-child(1) {
+#vote {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.movie-info > h5:nth-last-child(1) > .fas {
+#vote > .fas {
   color: #f8ce0b;
 }
 
-.movie-info p {
+.movie-info > p {
   color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 600px;
 }
 
 /* HOVER */

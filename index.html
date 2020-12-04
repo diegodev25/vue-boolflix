@@ -31,13 +31,13 @@
             <div class="movie-info">
               <h3>Titolo: {{ movie.title }}</h3>
               <h4>Titolo originale: {{ movie.original_title }}</h4>
-              <h5>Lingua originale:
+              <h5 id="original-language">Lingua originale:
                 <img :src="'img/' + movie.original_language + '.svg'" :alt="movie.original_language">
               </h5>
-              <h5>Voto:
+              <h5 id="vote">Voto:&nbsp;
                 <i class="fa-star" v-for="(vote, index) in 5" :class="index < movie.vote_average ? 'fas' : 'far'"></i>
               </h5>
-                <!-- <p>Overview: {{movie.overview}}</p> -->
+              <p>Overview: {{movie.overview}}</p>
             </div>
           </div>
         </div>
