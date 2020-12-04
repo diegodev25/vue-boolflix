@@ -77,7 +77,6 @@ a {
   min-height: 650px;
   margin: auto;
   padding: 10px;
-  border: 1px solid white;
 }
 
 .movie-poster {
@@ -87,17 +86,22 @@ a {
   justify-content: center;
   flex-basis: calc((100% / 5) - 40px);
   height: 380px;
-  border: 1px solid white;
   margin: 20px;
+  box-shadow: 2px 2px 8px 3px rgba(255,255,255,1);
+  transition: 0.22s linear;
 }
 
-.movie-info {
+.movie-poster > .movie-info {
+  visibility: hidden;
   position: absolute;
   top: 0;
   left: 0;
-  background-color: rgba(38,35,35,0.8);
+  background-color: rgb(38,35,35);
+  opacity: 0;
   width: 100%;
   height: 100%;
+  padding: 15px;
+  transition: visibility 0s, opacity 0.15s ease-in-out;
 }
 
 .movie-poster img {
@@ -106,14 +110,12 @@ a {
 }
 
 .movie-info h3, h4, h5 {
-  text-align: center;
   color: white;
   margin-bottom: 5px;
 }
 
 #original-language {
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 
@@ -124,7 +126,6 @@ a {
 
 #vote {
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 
@@ -134,10 +135,20 @@ a {
 
 .movie-info > p {
   color: white;
-  white-space: nowrap;
   overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
   text-overflow: ellipsis;
-  max-width: 600px;
+  max-width: 500px;
 }
 
 /* HOVER */
+.movie-poster:hover {
+  transform: scale(1.01);
+}
+
+.movie-poster:hover > .movie-info {
+  visibility: visible;
+  opacity: 0.88;
+}
