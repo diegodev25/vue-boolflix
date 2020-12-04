@@ -15,25 +15,30 @@
     <div id="app">
       <!-- HEADER -->
       <header class="header">
-        <img src="img/Netflix-01.svg" alt="Netflix logo">
+        <a href="#">
+          <img src="img/Netflix-01.svg" alt="Netflix logo">
+        </a>
         <div>
-          <input v-model="search" @keyup.enter="checkFilm" type="text" placeholder="Cerca il tuo film preferito...">
+          <input v-model="query" @keyup.enter="checkFilm" type="text" placeholder="Cerca il tuo film preferito...">
           <button type="button" @click="checkFilm">Cerca</button>
         </div>
       </header>
       <!-- MAIN -->
       <main class="container">
         <div class="section-movie">
-          <div v-for="movie in film" class="movie-info">
-            <!-- <img :src="'https://image.tmdb.org/t/p/w154/' + movie.poster_path" alt=""> -->
-            <h3>Titolo: {{ movie.title }}</h3>
-            <h4>Titolo originale: {{ movie.original_title }}</h4>
-            <h5>Lingua originale:
-              <img :src="'img/' + movie.original_language + '.svg'" :alt="movie.original_language">
-            </h5>
-            <h5>Voto:
-              <i v-for="(vote, index) in stars" :class="index < movie.vote_average ? 'fas' : 'far'" class="fa-star"></i>
-            </h5>
+          <div v-for="movie in film" class="movie-poster">
+            <img :src="'https://image.tmdb.org/t/p/w342/' + movie.poster_path" @error="posterDefault">
+            <div class="movie-info">
+              <h3>Titolo: {{ movie.title }}</h3>
+              <h4>Titolo originale: {{ movie.original_title }}</h4>
+              <h5>Lingua originale:
+                <img :src="'img/' + movie.original_language + '.svg'" :alt="movie.original_language">
+              </h5>
+              <h5>Voto:
+                <i class="fa-star" v-for="(vote, index) in 5" :class="index < movie.vote_average ? 'fas' : 'far'"></i>
+              </h5>
+                <!-- <p>Overview: {{movie.overview}}</p> -->
+            </div>
           </div>
         </div>
       </main>
